@@ -1,0 +1,9 @@
+.footer-icons {
+    color: var(--primary-color);
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.footer-icons:hover {
+  color: var(--secondary-color);
+}

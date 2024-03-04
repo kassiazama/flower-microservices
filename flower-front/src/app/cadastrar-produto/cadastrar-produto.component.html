@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row header-kassia">
+    <h2>Cadastrar Produto</h2>
+  </div>
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col-5 me-1">
+        <div class="row mb-2">
+          <label for="nome" class="form-label">Nome Produto</label>
+          <input type="text" class="form-control" id="nome" formControlName="nome" required>
+        </div>
+        <div class="row mb-3">
+          <label for="quantiaEstoque" class="form-label">Quantia Estoque</label>
+          <input type="text" class="form-control" id="quantiaEstoque" formControlName="quantiaEstoque" required>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div>
+          <label for="descricao" class="form-label">Descrição</label>
+          <textarea class="form-control" id="descricao" rows="4" formControlName="descricao"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="file" class="form-control" id="imagem" (change)="tratarImagem($event)">
+      <label class="input-group-text" for="imagem">Upload</label>
+    </div>
+    <button type="submit" class="btn button mb-5">Finalizar Cadastro</button>
+  </form>
+</div>

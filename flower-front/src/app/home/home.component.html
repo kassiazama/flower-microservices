@@ -1,0 +1,21 @@
+<div class="primary-banner">
+  <img src="assets/background.png" alt="banner-principal">
+  <button class="btn centered-button">Catálogo <i class="fa-solid fa-heart"></i></button>
+</div>
+
+<div class="container">
+  <h2 class="text mt-4 mb-4">Buquês em Destaque:</h2>
+  <div class="row mb-5">
+    <div class="col-lg-4 col-md-6 mt-4 mb-4" *ngFor="let product of products.slice(0,3)">
+      <div class="card">
+        <img src="assets/lirio.jpg" class="card-img-top img-fluid default-img-size" alt="{{ product?.nome }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product?.nome }}</h5>
+          <p class="card-text">{{ product?.descricao.length > 110 ? product?.descricao.slice(0, 110) + '...' : product?.descricao }}</p>
+          <button (click)="showDetails(product?.id)" class="btn button">Ver Detalhes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
