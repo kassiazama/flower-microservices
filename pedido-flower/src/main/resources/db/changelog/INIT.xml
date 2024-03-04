@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="kassia.zama">
+        <preConditions onFail="MARK_RAN" onFailMessage="A tabela Pedido já existe no database">
+            <not>
+                <tableExists tableName="PEDIDO"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="PEDIDO">
+            <column name="id"  autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PEDIDO"/>
+            </column>
+
+            <column name="produtoid" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="quantiapedido" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="nomecompleto" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="logradouro" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="numero" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="complemento" type="varchar(100)"/>
+
+            <column name="bairro" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cidade" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="estado" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
