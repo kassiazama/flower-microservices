@@ -1,0 +1,41 @@
+.primary-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-height: 50vh;
+}
+
+.primary-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.centered-button {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: calc(200px * 0.3);
+  border: 2px solid var(--primary-color);
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 10px 20px;
+  font-size: 16px;
+  font-style: oblique;
+}
+
+.centered-button:hover {
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.default-img-size {
+  max-width: 500px;
+  min-width: 300px;
+  display: block;
+  object-fit: cover;
+}

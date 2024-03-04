@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row header-kassia" [formGroup]="form">
+    <div class="col-md-6">
+      <img src="assets/lirio.jpg" alt="Imagem do Produto" class="img-fluid fixed-size">
+    </div>
+    <div class="col-md-6">
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <h3>{{ form.get('nome')?.value }}</h3>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <h3>R$ 20,00</h3>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <h5>{{ form.get('descricao')?.value }}</h5>
+        </div>
+      </div>
+      <div class="row mt-5 mb-3 align-items-center">
+        <div class="col-6">
+          <h5 class="mb-0 me-0">Quantia em estoque: {{ form.get('quantiaEstoque')?.value }}</h5>
+        </div>
+      </div>
+      <div class="row mt-5 mb-3 align-items-center">
+        <div class="col-5 col-md-3">
+          <ng-container [formGroup]="formPedido">
+            <label for="quantidade" class="form-label">Quantia Pedido:</label>
+            <input type="number" id="quantidade" class="form-control" formControlName="quantiaPedido" min="0">
+          </ng-container>
+        </div>
+        <div class="col-2 col-md-7 mt-4">
+          <button class="btn button btn-block h-100 d-flex align-items-center justify-content-center" [routerLink]="['/finalizar', form.get('id')?.value, formPedido.get('quantiaPedido')?.value ]">Comprar Agora
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

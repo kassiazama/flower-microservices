@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #0d5c63;
+  --secondary-color: #C8A49F;
+}
+
+h2,h3 {
+  color: var(--secondary-color);
+  font-style: oblique;
+}
+
+h5 {
+  font-style: oblique;
+  font-weight: lighter;
+}
+
+label {
+  font-style: oblique;
+  color: var(--primary-color);
+}
+
+.primary-color {
+  background: var(--primary-color);
+}
+
+.icons {
+  color: var(--secondary-color);
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.icons:hover {
+  color: white;
+}
+
+.header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 200px;
+  font-style: oblique;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+.header-kassia {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+
+
