@@ -24,6 +24,7 @@ Atualmente, dois serviços estão em funcionamento: FLOWER-ADMIN, responsável p
 <br>
 
 Próximas metas a cumprir: 
+- [ ] Testes unitários; <br>
 - [ ] Melhorias no layout; <br>
 - [ ] Validações; <br>
 - [ ] Novas features para incrementar a regra de negócio; <br>
