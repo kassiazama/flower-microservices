@@ -1,0 +1,66 @@
+version: "1"
+
+services:
+  server:
+    image: kassiazama/server
+    container_name: server
+    ports:
+      - '8081:8081'
+
+  gateway:
+    image: kassiazama/gateway
+    container_name: gateway
+    ports:
+      - '8082:8082'
+    depends_on:
+      - server
+
+  flower-admin:
+    image: kassiazama/flower-admin
+    container_name: flower-admin
+    ports:
+      - '0:0'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://psql-db:5432/flower
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=1234
+    depends_on:
+      - server
+      - gateway
+      - psql-db
+
+  flower-pedido:
+    image: kassiazama/flower-pedido
+    container_name: flower-pedido
+    ports:
+      - '0:0'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://psql-db:5432/pedido
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=1234
+    depends_on:
+      - server
+      - gateway
+      - psql-db
+
+  psql-db:
+    image: postgres
+    container_name: psql-db
+    volumes:
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=flower,pedido
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - '5432:5432'
+
+  angular:
+    image: kassiazama/angular
+    container_name: angular
+    ports:
+      - '4200:4200'
+
+
+
